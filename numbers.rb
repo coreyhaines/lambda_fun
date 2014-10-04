@@ -8,10 +8,6 @@ $two = Succ[$one]
 $three = Succ[$two]
 $four = Succ[$three]
 
-VW = -> value_to_wrap {->_{ value_to_wrap }}
-LTrue = VW[True]
-LFalse = VW[False]
-
 IfZero =
 -> if_this_is_zero { -> do_this { -> otherwise_do_this {
   IsZero[if_this_is_zero][->_{do_this.(Noop)}][->_{otherwise_do_this.(Noop)}].(Noop)

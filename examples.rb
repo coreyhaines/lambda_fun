@@ -1,7 +1,4 @@
-Noop = -> _ { }
-load './tuple.rb'
-load './booleans.rb'
-load './assertions.rb'
+load './core.rb'
 load './numbers.rb'
 def title(msg)
   puts "------#{msg}-----"
