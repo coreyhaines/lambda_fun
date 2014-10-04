@@ -24,3 +24,8 @@ Assert[And[True][True]]
 Refute[And[False][False]]
 Refute[And[True][False]]
 Refute[And[False][True]]
+
+Assert[Or[True][True]]
+Refute[Or[False][False]]
+Assert[Or[True][False]]
+Assert[Or[False][True]]
