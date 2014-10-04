@@ -28,10 +28,11 @@ Assert[NumbersEqual[$one][Head[NewList[$one]]]]
 Assert[IsEmpty[Tail[NewList[$one]]]]
 
 title "InList (5)"
-Refute[InList[EmptyList][$one]]
-Assert[InList[NewList[$one]][$one]]
-Refute[InList[NewList[$one]][$two]]
-Assert[InList[Unshift[NewList[$two]][$one]][$two]]
-Assert[InList[Unshift[Unshift[NewList[$two]][$one]][$three]][$two]]
+InList_Number = InList[NumbersEqual]
+Refute[InList_Number[EmptyList][$one]]
+Assert[InList_Number[NewList[$one]][$one]]
+Refute[InList_Number[NewList[$one]][$two]]
+Assert[InList_Number[Unshift[NewList[$two]][$one]][$two]]
+Assert[InList_Number[Unshift[Unshift[NewList[$two]][$one]][$three]][$two]]
 
 

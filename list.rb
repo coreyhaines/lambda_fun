@@ -7,7 +7,7 @@ Unshift =
   Cons[Cons[False][element]][list]
 }}
 NewList=->element{Unshift[EmptyList][element]}
-InList =
+InList=->equality_operator{
 ->list{->element{
   If[
     LFalse
@@ -16,12 +16,12 @@ InList =
       If[
         LTrue
       ][
-        ->_{InList[Tail[list]][element]}
+        ->_{InList[equality_operator][Tail[list]][element]}
       ][
-        NumbersEqual[Head[list]][element]
+        equality_operator[Head[list]][element]
       ]
     }
   ][
     IsEmpty[list]
   ]
-}}
+}}}
