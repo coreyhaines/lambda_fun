@@ -15,3 +15,7 @@ Tail =
 -> list {
   Cdr[list]
 }
+NewList =
+-> element {
+  Unshift[element][EmptyList]
+}

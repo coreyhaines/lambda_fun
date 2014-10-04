@@ -21,3 +21,8 @@ Assert[IsEmpty[Tail[Unshift[$one][EmptyList]]]]
 
 title "Tail of EmptyList should be EmptyList (1)"
 Assert[IsEmpty[Tail[EmptyList]]]
+
+title "Making a new list (3)"
+Assert[Not[IsEmpty[NewList[$one]]]]
+Assert[NumbersEqual[$one][Head[NewList[$one]]]]
+Assert[IsEmpty[Tail[NewList[$one]]]]
