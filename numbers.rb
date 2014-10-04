@@ -12,6 +12,12 @@ VW = -> value_to_wrap {->_{ value_to_wrap }}
 LTrue = VW[True]
 LFalse = VW[False]
 
+IfZero =
+-> if_this_is_zero { -> do_this { -> otherwise_do_this {
+  If[->_{do_this.(Noop)}][->_{otherwise_do_this.(Noop)}][IsZero[if_this_is_zero]]
+}}}
+
+
 NumbersEqual =
 -> first { -> second {
   If[
@@ -31,29 +37,18 @@ NumbersEqual =
   ]
 }}
 
-ApplyUnlessZero =
--> if_this_is_zero { -> return_this { -> otherwise_do_this {
-  If[
-    VW[return_this]
-  ][
-    ->_{otherwise_do_this.(Noop)}
-  ][
-    IsZero[if_this_is_zero]
-  ]
-}}}
-
 NumbersAdd =
 -> addend { -> augend {
-  ApplyUnlessZero[augend][addend][
+  IfZero[augend][VW[addend]][
     ->_{NumbersAdd[Succ[addend]][Pred[augend]]}
   ]
 }}
 
 NumbersSubtract =
 -> minuend { -> subtrahend {
-  ApplyUnlessZero[subtrahend][minuend][
+  IfZero[subtrahend][VW[minuend]][
     ->_{
-      ApplyUnlessZero[minuend][$zero][
+      IfZero[minuend][VW[$zero]][
         ->_{NumbersSubtract[Pred[minuend]][Pred[subtrahend]]}
       ]
     }
