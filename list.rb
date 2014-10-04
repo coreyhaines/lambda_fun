@@ -3,12 +3,12 @@ IsEmpty=->list{Car[Car[list]]}
 Head=->list{Cdr[Car[list]]}
 Tail=->list{Cdr[list]}
 Unshift =
--> list { -> element {
+->list{->element{
   Cons[Cons[False][element]][list]
 }}
 NewList=->element{Unshift[EmptyList][element]}
 InList =
--> list { -> element {
+->list{->element{
   If[
     LFalse
   ][
@@ -16,11 +16,9 @@ InList =
       If[
         LTrue
       ][
-        ->_{
-          InList[Tail[list]][element]
-        }
+        ->_{InList[Tail[list]][element]}
       ][
-        NumbersEqual[element][Head[list]]
+        NumbersEqual[Head[list]][element]
       ]
     }
   ][
