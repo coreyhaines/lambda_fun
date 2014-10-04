@@ -47,7 +47,14 @@ Assert[NumbersEqual[$two][$two]]
 Refute[NumbersEqual[$two][$three]]
 Refute[NumbersEqual[$three][$two]]
 
-
-
+title "Addition"
+Assert[IsZero[NumbersAdd[$zero][$zero]]]
+Assert[NumbersEqual[$one][NumbersAdd[$one][$zero]]]
+Assert[NumbersEqual[$two][NumbersAdd[$two][$zero]]]
+Assert[NumbersEqual[$one][NumbersAdd[$zero][$one]]]
+Assert[NumbersEqual[$two][NumbersAdd[$zero][$two]]]
+Assert[NumbersEqual[$two][NumbersAdd[$one][$one]]]
+Assert[NumbersEqual[$three][NumbersAdd[$two][$one]]]
+Assert[NumbersEqual[$three][NumbersAdd[$one][$two]]]
 
 

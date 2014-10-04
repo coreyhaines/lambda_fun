@@ -28,3 +28,16 @@ NumbersEqual =
     IsZero[first]
   ]
 }}
+
+NumbersAdd =
+-> addend1 { -> addend2 {
+  If[
+    -> _ { addend2 }
+  ][
+    -> _ {
+      NumbersAdd[Pred[addend1]][Succ[addend2]]
+    }
+  ][
+    IsZero[addend1]
+  ]
+}}
