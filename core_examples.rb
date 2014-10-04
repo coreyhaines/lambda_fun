@@ -18,3 +18,9 @@ If[PrintTrue][PrintFalse][False]
 title "Assert/Refute"
 Assert[True]
 Refute[False]
+
+title "And/Or/Not"
+Assert[And[True][True]]
+Refute[And[False][False]]
+Refute[And[True][False]]
+Refute[And[False][True]]
