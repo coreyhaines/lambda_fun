@@ -3,10 +3,10 @@ IsEmpty=->list{Car[Car[list]]}
 Head=->list{Cdr[Car[list]]}
 Tail=->list{Cdr[list]}
 Unshift =
--> element { -> list {
+-> list { -> element {
   Cons[Cons[False][element]][list]
 }}
-NewList=->element{Unshift[element][EmptyList]}
+NewList=->element{Unshift[EmptyList][element]}
 InList =
 -> list { -> element {
   If[

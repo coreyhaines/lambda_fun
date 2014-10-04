@@ -9,15 +9,15 @@ title "Lists"
 
 title "Empty List (2)"
 Assert[IsEmpty[EmptyList]]
-Refute[IsEmpty[Unshift[$one][EmptyList]]]
+Refute[IsEmpty[Unshift[EmptyList][$one]]]
 
 title "Head (3)"
-Assert[NumbersEqual[$one][Head[Unshift[$one][EmptyList]]]]
-Refute[NumbersEqual[$two][Head[Unshift[$one][EmptyList]]]]
-Assert[NumbersEqual[$two][Head[Unshift[$two][Unshift[$one][EmptyList]]]]]
+Assert[NumbersEqual[$one][Head[Unshift[EmptyList][$one]]]]
+Refute[NumbersEqual[$two][Head[Unshift[EmptyList][$one]]]]
+Assert[NumbersEqual[$two][Head[Unshift[Unshift[EmptyList][$one]][$two]]]]
 
 title "Tail (1)"
-Assert[IsEmpty[Tail[Unshift[$one][EmptyList]]]]
+Assert[IsEmpty[Tail[Unshift[EmptyList][$one]]]]
 
 title "Tail of EmptyList should be EmptyList (1)"
 Assert[IsEmpty[Tail[EmptyList]]]
@@ -31,8 +31,7 @@ title "InList (5)"
 Refute[InList[EmptyList][$one]]
 Assert[InList[NewList[$one]][$one]]
 Refute[InList[NewList[$one]][$two]]
-Assert[InList[Unshift[$one][NewList[$two]]][$two]]
-Assert[InList[Unshift[$three][Unshift[$one][NewList[$two]]]][$two]]
-
+Assert[InList[Unshift[NewList[$two]][$one]][$two]]
+Assert[InList[Unshift[Unshift[NewList[$two]][$one]][$three]][$two]]
 
 
