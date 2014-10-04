@@ -23,3 +23,4 @@ Refute = -> bool { If[FAIL][Print["T"]][bool] }
 And = ->bool1{->bool2{bool1[bool2][False]}}
 Or = ->bool1{->bool2{bool1[True][bool2]}}
 Not = ->bool{bool[False][True]}
+XNor = ->bool1{->bool2{bool1[bool2][Not[bool2]]}}

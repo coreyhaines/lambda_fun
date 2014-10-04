@@ -34,3 +34,9 @@ Assert[Or[False][True]]
 title "Not (2)"
 Assert[Not[False]]
 Refute[Not[True]]
+
+title "XNor (4)"
+Assert[XNor[True][True]]
+Assert[XNor[False][False]]
+Refute[XNor[True][False]]
+Refute[XNor[False][True]]
