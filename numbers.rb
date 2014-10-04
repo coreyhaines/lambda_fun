@@ -20,20 +20,10 @@ IfZero =
 
 NumbersEqual =
 -> first { -> second {
-  If[
-    -> _ { If[LTrue][LFalse][IsZero[second]] }
+  IfZero[first][
+    ->_{If[LTrue][LFalse][IsZero[second]]}
   ][
-    -> _ {
-      If[
-        LFalse
-      ][
-        -> _ { NumbersEqual[Pred[first]][Pred[second]] }
-      ][
-        IsZero[second]
-      ]
-    }
-  ][
-    IsZero[first]
+    ->_{IfZero[second][LFalse][->_{NumbersEqual[Pred[first]][Pred[second]]}]}
   ]
 }}
 
