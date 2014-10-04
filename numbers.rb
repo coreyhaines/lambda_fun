@@ -10,7 +10,7 @@ $four = Succ[$three]
 
 IfZero =
 -> if_this_is_zero { -> do_this { -> otherwise_do_this {
-  IsZero[if_this_is_zero][->_{do_this.(Noop)}][->_{otherwise_do_this.(Noop)}].(Noop)
+  IsZero[if_this_is_zero][do_this][otherwise_do_this].(Noop)
 }}}
 
 
