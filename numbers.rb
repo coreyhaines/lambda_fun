@@ -34,13 +34,13 @@ NumbersEqual =
 NumbersAdd =
 -> addend { -> augend {
   If[
-    VW[augend]
+    VW[addend]
   ][
     -> _ {
-      NumbersAdd[Pred[addend]][Succ[augend]]
+      NumbersAdd[Succ[addend]][Pred[augend]]
     }
   ][
-    IsZero[addend]
+    IsZero[augend]
   ]
 }}
 
