@@ -7,3 +7,21 @@ Unshift =
   Cons[Cons[False][element]][list]
 }}
 NewList=->element{Unshift[element][EmptyList]}
+InList =
+-> list { -> element {
+  If[
+    LFalse
+  ][
+    ->_{
+      If[
+        LTrue
+      ][
+        LFalse
+      ][
+        NumbersEqual[element][Head[list]]
+      ]
+    }
+  ][
+    IsEmpty[list]
+  ]
+}}

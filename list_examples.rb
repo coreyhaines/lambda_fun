@@ -26,3 +26,12 @@ title "Making a new list (3)"
 Assert[Not[IsEmpty[NewList[$one]]]]
 Assert[NumbersEqual[$one][Head[NewList[$one]]]]
 Assert[IsEmpty[Tail[NewList[$one]]]]
+
+title "InList (3)"
+Refute[InList[EmptyList][$one]]
+Assert[InList[NewList[$one]][$one]]
+Refute[InList[NewList[$one]][$two]]
+
+
+
+
