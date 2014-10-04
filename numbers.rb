@@ -31,36 +31,31 @@ NumbersEqual =
   ]
 }}
 
+ApplyUnlessZero =
+-> if_this_is_zero { -> return_this { -> otherwise_do_this {
+  If[
+    VW[return_this]
+  ][
+    ->_{otherwise_do_this.(Noop)}
+  ][
+    IsZero[if_this_is_zero]
+  ]
+}}}
+
 NumbersAdd =
 -> addend { -> augend {
-  If[
-    VW[addend]
-  ][
-    -> _ {
-      NumbersAdd[Succ[addend]][Pred[augend]]
-    }
-  ][
-    IsZero[augend]
+  ApplyUnlessZero[augend][addend][
+    ->_{NumbersAdd[Succ[addend]][Pred[augend]]}
   ]
 }}
 
 NumbersSubtract =
 -> minuend { -> subtrahend {
-  If[
-    VW[minuend]
-  ][
-    -> _ {
-      If[
-        VW[$zero]
-      ][
-        -> _ {
-          NumbersSubtract[Pred[minuend]][Pred[subtrahend]]
-        }
-      ][
-        IsZero[minuend]
+  ApplyUnlessZero[subtrahend][minuend][
+    ->_{
+      ApplyUnlessZero[minuend][$zero][
+        ->_{NumbersSubtract[Pred[minuend]][Pred[subtrahend]]}
       ]
     }
-  ][
-    IsZero[subtrahend]
   ]
 }}
