@@ -12,12 +12,11 @@ tuple = Cons[1][2]
 puts Car[tuple]
 puts Cdr[tuple]
 
+title "Logic"
 
-title "If"
-
-puts "If True"
+title "If True"
 If[PrintTrue][PrintFalse][True]
-puts "If False"
+title "If False"
 If[PrintTrue][PrintFalse][False]
 
 title "Assert/Refute"
