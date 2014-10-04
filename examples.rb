@@ -63,5 +63,7 @@ Assert[IsZero[NumbersSubtract[$one][$one]]]
 Assert[NumbersEqual[$one][NumbersSubtract[$one][$zero]]]
 Assert[NumbersEqual[$two][NumbersSubtract[$three][$one]]]
 Assert[NumbersEqual[$one][NumbersSubtract[$three][$two]]]
+Assert[NumbersEqual[$zero][NumbersSubtract[$two][$three]]]
+Assert[NumbersEqual[$zero][NumbersSubtract[$one][$four]]]
 
 

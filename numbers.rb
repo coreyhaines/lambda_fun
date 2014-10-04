@@ -6,6 +6,7 @@ $zero = Cons[True][Noop]
 $one = Succ[$zero]
 $two = Succ[$one]
 $three = Succ[$two]
+$four = Succ[$three]
 
 VW = -> value_to_wrap {->_{ value_to_wrap }}
 LTrue = VW[True]
@@ -49,7 +50,15 @@ NumbersSubtract =
     VW[minuend]
   ][
     -> _ {
-      NumbersSubtract[Pred[minuend]][Pred[subtrahend]]
+      If[
+        VW[$zero]
+      ][
+        -> _ {
+          NumbersSubtract[Pred[minuend]][Pred[subtrahend]]
+        }
+      ][
+        IsZero[minuend]
+      ]
     }
   ][
     IsZero[subtrahend]
