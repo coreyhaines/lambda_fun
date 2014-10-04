@@ -16,7 +16,9 @@ InList =
       If[
         LTrue
       ][
-        LFalse
+        ->_{
+          InList[Tail[list]][element]
+        }
       ][
         NumbersEqual[element][Head[list]]
       ]

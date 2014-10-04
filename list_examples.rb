@@ -27,11 +27,12 @@ Assert[Not[IsEmpty[NewList[$one]]]]
 Assert[NumbersEqual[$one][Head[NewList[$one]]]]
 Assert[IsEmpty[Tail[NewList[$one]]]]
 
-title "InList (3)"
+title "InList (5)"
 Refute[InList[EmptyList][$one]]
 Assert[InList[NewList[$one]][$one]]
 Refute[InList[NewList[$one]][$two]]
-
+Assert[InList[Unshift[$one][NewList[$two]]][$two]]
+Assert[InList[Unshift[$three][Unshift[$one][NewList[$two]]]][$two]]
 
 
 
