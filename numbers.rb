@@ -14,14 +14,14 @@ LFalse = VW[False]
 
 IfZero =
 -> if_this_is_zero { -> do_this { -> otherwise_do_this {
-  If[->_{do_this.(Noop)}][->_{otherwise_do_this.(Noop)}][IsZero[if_this_is_zero]]
+  IsZero[if_this_is_zero][->_{do_this.(Noop)}][->_{otherwise_do_this.(Noop)}].(Noop)
 }}}
 
 
 NumbersEqual =
 -> first { -> second {
   IfZero[first][
-    ->_{If[LTrue][LFalse][IsZero[second]]}
+    ->_{IsZero[second]}
   ][
     ->_{IfZero[second][LFalse][->_{NumbersEqual[Pred[first]][Pred[second]]}]}
   ]
