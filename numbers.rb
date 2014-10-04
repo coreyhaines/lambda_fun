@@ -7,8 +7,9 @@ $one = Succ[$zero]
 $two = Succ[$one]
 $three = Succ[$two]
 
-LTrue = -> _ { True }
-LFalse = -> _ { False }
+VW = -> value_to_wrap {->_{ value_to_wrap }}
+LTrue = VW[True]
+LFalse = VW[False]
 
 NumbersEqual =
 -> first { -> second {
@@ -30,14 +31,27 @@ NumbersEqual =
 }}
 
 NumbersAdd =
--> addend1 { -> addend2 {
+-> addend { -> augend {
   If[
-    -> _ { addend2 }
+    VW[augend]
   ][
     -> _ {
-      NumbersAdd[Pred[addend1]][Succ[addend2]]
+      NumbersAdd[Pred[addend]][Succ[augend]]
     }
   ][
-    IsZero[addend1]
+    IsZero[addend]
+  ]
+}}
+
+NumbersSubtract =
+-> minuend { -> subtrahend {
+  If[
+    VW[minuend]
+  ][
+    -> _ {
+      NumbersSubtract[Pred[minuend]][Pred[subtrahend]]
+    }
+  ][
+    IsZero[subtrahend]
   ]
 }}

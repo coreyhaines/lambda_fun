@@ -1,3 +1,4 @@
+Noop = -> _ { }
 load './tuple.rb'
 load './booleans.rb'
 load './assertions.rb'
@@ -5,7 +6,6 @@ load './numbers.rb'
 def title(msg)
   puts "------#{msg}-----"
 end
-Noop = -> _ { }
 
 title "Tuples"
 tuple = Cons[1][2]
@@ -56,5 +56,12 @@ Assert[NumbersEqual[$two][NumbersAdd[$zero][$two]]]
 Assert[NumbersEqual[$two][NumbersAdd[$one][$one]]]
 Assert[NumbersEqual[$three][NumbersAdd[$two][$one]]]
 Assert[NumbersEqual[$three][NumbersAdd[$one][$two]]]
+
+title "Subtraction"
+Assert[IsZero[NumbersSubtract[$zero][$zero]]]
+Assert[IsZero[NumbersSubtract[$one][$one]]]
+Assert[NumbersEqual[$one][NumbersSubtract[$one][$zero]]]
+Assert[NumbersEqual[$two][NumbersSubtract[$three][$one]]]
+Assert[NumbersEqual[$one][NumbersSubtract[$three][$two]]]
 
 
