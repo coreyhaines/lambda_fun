@@ -27,7 +27,8 @@ Assert[Not[IsEmpty[NewList[$one]]]]
 Assert[NumbersEqual[$one][Head[NewList[$one]]]]
 Assert[IsEmpty[Tail[NewList[$one]]]]
 
-title "InList (5)"
+title "InList"
+title "InList_Number (5)"
 InList_Number = InList[NumbersEqual]
 Refute[InList_Number[EmptyList][$one]]
 Assert[InList_Number[NewList[$one]][$one]]
@@ -35,4 +36,11 @@ Refute[InList_Number[NewList[$one]][$two]]
 Assert[InList_Number[Unshift[NewList[$two]][$one]][$two]]
 Assert[InList_Number[Unshift[Unshift[NewList[$two]][$one]][$three]][$two]]
 
-
+title "InList_Boolean (5)"
+InList_Boolean = InList[XNor]
+Refute[InList_Boolean[EmptyList][True]]
+Refute[InList_Boolean[EmptyList][False]]
+Assert[InList_Boolean[NewList[True]][True]]
+Assert[InList_Boolean[NewList[False]][False]]
+Assert[InList_Boolean[Unshift[NewList[True]][False]][True]]
+Assert[InList_Boolean[Unshift[NewList[True]][False]][False]]
