@@ -21,8 +21,6 @@ If[PrintTrue][PrintFalse][False]
 
 title "Assert/Refute"
 Assert[True]
-Assert[False]
-Refute[True]
 Refute[False]
 
 title "Numbers"

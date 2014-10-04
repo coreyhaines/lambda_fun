@@ -1,2 +1,3 @@
-Assert = -> bool { If[Print["T"]][Print["F"]][bool] }
-Refute = -> bool { If[Print["F"]][Print["T"]][bool] }
+FAIL = ->_{raise "Failed"}
+Assert = -> bool { If[Print["T"]][FAIL][bool] }
+Refute = -> bool { If[FAIL][Print["T"]][bool] }
