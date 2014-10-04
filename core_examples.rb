@@ -19,13 +19,18 @@ title "Assert/Refute"
 Assert[True]
 Refute[False]
 
-title "And/Or/Not"
+title "And"
 Assert[And[True][True]]
 Refute[And[False][False]]
 Refute[And[True][False]]
 Refute[And[False][True]]
 
+title "Or"
 Assert[Or[True][True]]
 Refute[Or[False][False]]
 Assert[Or[True][False]]
 Assert[Or[False][True]]
+
+title "Not"
+Assert[Not[False]]
+Refute[Not[True]]
