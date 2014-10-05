@@ -8,9 +8,9 @@ Assert[NumbersEqual[$two][Cdr[tuple]]]
 Title["Logic"]
 
 Title["If True (1)"]
-If[PrintTrue][PrintFalse][True]
+If[PASS][FAIL][True]
 Title["If False (1)"]
-If[PrintTrue][PrintFalse][False]
+If[FAIL][PASS][False]
 
 Title["And (4)"]
 Assert[And[True][True]]
