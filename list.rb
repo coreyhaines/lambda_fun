@@ -1,10 +1,12 @@
-EmptyList = Cons[Cons[True][Noop]][Cons[Cons[True][Noop]][Noop]]
-IsEmpty=->list{Car[Car[list]]}
-Head=->list{Cdr[Car[list]]}
-Tail=->list{Cdr[list]}
+EmptyList = Cons[True][True]
+IsEmpty=->list{Car[list]}
+Head=->list{Car[Cdr[list]]}
+Tail=->list{
+  If[VW[EmptyList]][->_{Cdr[Cdr[list]]}][IsEmpty[list]]
+}
 Unshift =
 ->list{->element{
-  Cons[Cons[False][element]][list]
+  Cons[False][Cons[element][list]]
 }}
 NewList=->element{Unshift[EmptyList][element]}
 InList=->equality_operator{
