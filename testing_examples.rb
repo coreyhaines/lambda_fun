@@ -6,6 +6,6 @@ Refute[False]
 
 title "AssertEqual"
 
-AssertNumbersEqual = AssertEqual
+AssertNumbersEqual = AssertEqual[NumbersEqual]
 AssertNumbersEqual[$one][$one]
 AssertNumbersEqual[$two][$two]
