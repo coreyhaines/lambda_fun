@@ -1,6 +1,6 @@
-load './core.rb'
-load './list.rb'
-load './numbers.rb'
+require_relative 'core.rb'
+require_relative 'list.rb'
+require_relative 'numbers.rb'
 def title(msg)
   puts "------#{msg}-----"
 end

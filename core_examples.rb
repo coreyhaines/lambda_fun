@@ -1,4 +1,4 @@
-load './core.rb'
+require_relative 'core.rb'
 def title(msg)
   puts "------#{msg}-----"
 end

@@ -1,3 +1,4 @@
+require_relative 'core.rb'
 EmptyList = Cons[True][True]
 IsEmpty=->list{Car[list]}
 Head=->list{Car[Cdr[list]]}
