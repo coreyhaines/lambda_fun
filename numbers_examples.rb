@@ -23,7 +23,7 @@ Refute[NumbersEqual[$two][$three]]
 Refute[NumbersEqual[$three][$two]]
 
 title "Addition (8)"
-Assert[IsZero[NumbersAdd[$zero][$zero]]]
+AssertZero[NumbersAdd[$zero][$zero]]
 AssertNumbersEqual[$one][NumbersAdd[$one][$zero]]
 AssertNumbersEqual[$two][NumbersAdd[$two][$zero]]
 AssertNumbersEqual[$one][NumbersAdd[$zero][$one]]
@@ -33,8 +33,8 @@ AssertNumbersEqual[$three][NumbersAdd[$two][$one]]
 AssertNumbersEqual[$three][NumbersAdd[$one][$two]]
 
 title "Subtraction (7)"
-Assert[IsZero[NumbersSubtract[$zero][$zero]]]
-Assert[IsZero[NumbersSubtract[$one][$one]]]
+AssertZero[NumbersSubtract[$zero][$zero]]
+AssertZero[NumbersSubtract[$one][$one]]
 AssertNumbersEqual[$one][NumbersSubtract[$one][$zero]]
 AssertNumbersEqual[$two][NumbersSubtract[$three][$one]]
 AssertNumbersEqual[$one][NumbersSubtract[$three][$two]]

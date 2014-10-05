@@ -16,9 +16,3 @@ begin
 rescue
   Print["T"].(Noop)
 end
-
-
-title "AssertEqual/AssertNumbersEqual"
-
-AssertNumbersEqual[$one][$one]
-AssertNumbersEqual[$two][$two]

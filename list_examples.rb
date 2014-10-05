@@ -11,19 +11,19 @@ Refute[IsEmpty[Unshift[EmptyList][$one]]]
 
 title "Head (3)"
 AssertNumbersEqual[$one][Head[Unshift[EmptyList][$one]]]
-Refute[NumbersEqual[$two][Head[Unshift[EmptyList][$one]]]]
+RefuteNumbersEqual[$two][Head[Unshift[EmptyList][$one]]]
 AssertNumbersEqual[$two][Head[Unshift[Unshift[EmptyList][$one]][$two]]]
 
 title "Tail (1)"
-Assert[IsEmpty[Tail[Unshift[EmptyList][$one]]]]
+AssertEmpty[Tail[Unshift[EmptyList][$one]]]
 
 title "Tail of EmptyList should be EmptyList (1)"
-Assert[IsEmpty[Tail[EmptyList]]]
+AssertEmpty[Tail[EmptyList]]
 
 title "Making a new list (3)"
-Assert[Not[IsEmpty[NewList[$one]]]]
+RefuteEmpty[NewList[$one]]
 AssertNumbersEqual[$one][Head[NewList[$one]]]
-Assert[IsEmpty[Tail[NewList[$one]]]]
+AssertEmpty[Tail[NewList[$one]]]
 
 title "InList"
 title "InList_Number (5)"
@@ -48,11 +48,11 @@ title "Filter"
 title "Finding Trues (3)"
 TrueFilter = Filter[->element{element}]
 FalseFilter = Filter[->element{Not[element]}]
-Assert[IsEmpty[TrueFilter[EmptyList]]]
-Refute[IsEmpty[TrueFilter[NewList[True]]]]
-Assert[IsEmpty[FalseFilter[NewList[True]]]]
+AssertEmpty[TrueFilter[EmptyList]]
+RefuteEmpty[TrueFilter[NewList[True]]]
+AssertEmpty[FalseFilter[NewList[True]]]
 
 title "Filter should return all matching elements (3)"
 Assert[Head[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]
 Assert[Head[Tail[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]]
-Assert[IsEmpty[Tail[Tail[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]]]
+AssertEmpty[Tail[Tail[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]]
