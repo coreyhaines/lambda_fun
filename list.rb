@@ -25,3 +25,21 @@ InList=->equality_operator{
     IsEmpty[list]
   ]
 }}}
+Filter=->filter{
+->list{
+  If[
+    VW[EmptyList]
+  ][
+    ->_{
+      If[
+        ->_{Unshift[Filter[filter][Tail[list]]][Head[list]]}
+      ][
+        ->_{Filter[filter][Tail[list]]}
+      ][
+        filter[Head[list]]
+      ]
+    }
+  ][
+    IsEmpty[list]
+  ]
+}}

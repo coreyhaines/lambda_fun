@@ -44,3 +44,16 @@ Assert[InList_Boolean[NewList[True]][True]]
 Assert[InList_Boolean[NewList[False]][False]]
 Assert[InList_Boolean[Unshift[NewList[True]][False]][True]]
 Assert[InList_Boolean[Unshift[NewList[True]][False]][False]]
+
+title "Filter"
+
+title "Finding Trues (3)"
+TrueFilter = Filter[->element{element}]
+FalseFilter = Filter[->element{Not[element]}]
+Assert[IsEmpty[TrueFilter[EmptyList]]]
+Refute[IsEmpty[TrueFilter[NewList[True]]]]
+Assert[IsEmpty[FalseFilter[NewList[True]]]]
+
+title "Filter should return all matching elements (2)"
+Assert[Not[IsEmpty[TrueFilter[Unshift[NewList[True]][True]]]]]
+Assert[Not[IsEmpty[Tail[TrueFilter[Unshift[NewList[True]][True]]]]]]
