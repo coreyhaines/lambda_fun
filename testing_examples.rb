@@ -18,8 +18,7 @@ rescue
 end
 
 
-title "AssertEqual"
+title "AssertEqual/AssertNumbersEqual"
 
-AssertNumbersEqual = AssertEqual[NumbersEqual]
 AssertNumbersEqual[$one][$one]
 AssertNumbersEqual[$two][$two]

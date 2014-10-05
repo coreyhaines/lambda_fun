@@ -1,4 +1,5 @@
 require_relative 'core.rb'
+require_relative 'numbers.rb'
 
 def title(msg)
   puts "------#{msg}-----"
@@ -12,3 +13,4 @@ AssertEqual=->equality_operator{
 ->first{->second{
   Assert[equality_operator[first][second]]
 }}}
+AssertNumbersEqual = AssertEqual[NumbersEqual]
