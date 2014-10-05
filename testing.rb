@@ -1,12 +1,9 @@
+require_relative 'ruby_interop.rb'
 require_relative 'core.rb'
 require_relative 'numbers.rb'
 require_relative 'list.rb'
 
-def title(msg)
-  puts "------#{msg}-----"
-end
-
-FAIL=->_{raise "Failed"}
+FAIL=->_{Raise["Failed"]}
 Assert=->bool{If[Print["T"]][FAIL][bool]}
 Refute=->bool{If[FAIL][Print["T"]][bool]}
 

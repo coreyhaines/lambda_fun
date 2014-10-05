@@ -1,9 +1,9 @@
 require_relative 'core.rb'
 require_relative 'testing.rb'
 require_relative 'numbers.rb'
-title "Numbers"
+Title["Numbers"]
 
-title "Checking if things are zero (8)"
+Title["Checking if things are zero (8)"]
 Assert[IsZero[$zero]]
 Refute[IsZero[Succ[$zero]]]
 Assert[IsZero[Pred[Succ[$zero]]]]
@@ -13,7 +13,7 @@ Assert[IsZero[Pred[$one]]]
 Refute[IsZero[Pred[$two]]]
 Assert[IsZero[Pred[Pred[$two]]]]
 
-title "Checking if two numbers are equal (7)"
+Title["Checking if two numbers are equal (7)"]
 Assert[NumbersEqual[$zero][$zero]]
 Refute[NumbersEqual[$zero][$one]]
 Refute[NumbersEqual[$one][$zero]]
@@ -22,7 +22,7 @@ Assert[NumbersEqual[$two][$two]]
 Refute[NumbersEqual[$two][$three]]
 Refute[NumbersEqual[$three][$two]]
 
-title "Addition (8)"
+Title["Addition (8)"]
 AssertZero[NumbersAdd[$zero][$zero]]
 AssertNumbersEqual[$one][NumbersAdd[$one][$zero]]
 AssertNumbersEqual[$two][NumbersAdd[$two][$zero]]
@@ -32,7 +32,7 @@ AssertNumbersEqual[$two][NumbersAdd[$one][$one]]
 AssertNumbersEqual[$three][NumbersAdd[$two][$one]]
 AssertNumbersEqual[$three][NumbersAdd[$one][$two]]
 
-title "Subtraction (7)"
+Title["Subtraction (7)"]
 AssertZero[NumbersSubtract[$zero][$zero]]
 AssertZero[NumbersSubtract[$one][$one]]
 AssertNumbersEqual[$one][NumbersSubtract[$one][$zero]]

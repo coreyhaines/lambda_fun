@@ -1,6 +1,6 @@
 require_relative 'testing.rb'
 require_relative 'numbers.rb'
-title "Assert/Refute (4)"
+Title["Assert/Refute (4)"]
 Assert[True]
 begin
   Assert[False]
