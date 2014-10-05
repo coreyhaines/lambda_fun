@@ -1,8 +1,5 @@
 require_relative 'core.rb'
-def title(msg)
-  puts "------#{msg}-----"
-end
-
+require_relative 'testing.rb'
 title "Tuples (2)"
 tuple = Cons[1][2]
 puts (Car[tuple] == 1 ? "T" : "F")
@@ -14,10 +11,6 @@ title "If True (1)"
 If[PrintTrue][PrintFalse][True]
 title "If False (1)"
 If[PrintTrue][PrintFalse][False]
-
-title "Assert/Refute (2)"
-Assert[True]
-Refute[False]
 
 title "And (4)"
 Assert[And[True][True]]

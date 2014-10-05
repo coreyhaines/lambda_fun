@@ -1,9 +1,7 @@
 require_relative 'core.rb'
+require_relative 'testing.rb'
 require_relative 'list.rb'
 require_relative 'numbers.rb'
-def title(msg)
-  puts "------#{msg}-----"
-end
 
 title "Lists"
 

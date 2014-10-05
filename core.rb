@@ -12,15 +12,12 @@ VW = -> value_to_wrap {->_{ value_to_wrap }}
 LTrue = VW[True]
 LFalse = VW[False]
 
-Print = -> to_print { -> _ { puts to_print } }
-PrintTrue = Print["True"]
-PrintFalse = Print["False"]
-
-FAIL = ->_{raise "Failed"}
-Assert = -> bool { If[Print["T"]][FAIL][bool] }
-Refute = -> bool { If[FAIL][Print["T"]][bool] }
-
 And = ->bool1{->bool2{bool1[bool2][False]}}
 Or = ->bool1{->bool2{bool1[True][bool2]}}
 Not = ->bool{bool[False][True]}
 XNor = ->bool1{->bool2{bool1[bool2][Not[bool2]]}}
+
+Print = -> to_print { -> _ { puts to_print } }
+PrintTrue = Print["True"]
+PrintFalse = Print["False"]
+

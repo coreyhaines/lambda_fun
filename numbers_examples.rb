@@ -1,8 +1,6 @@
 require_relative 'core.rb'
+require_relative 'testing.rb'
 require_relative 'numbers.rb'
-def title(msg)
-  puts "------#{msg}-----"
-end
 title "Numbers"
 
 title "Checking if things are zero (8)"
@@ -42,5 +40,4 @@ Assert[NumbersEqual[$two][NumbersSubtract[$three][$one]]]
 Assert[NumbersEqual[$one][NumbersSubtract[$three][$two]]]
 Assert[NumbersEqual[$zero][NumbersSubtract[$two][$three]]]
 Assert[NumbersEqual[$zero][NumbersSubtract[$one][$four]]]
-
 
