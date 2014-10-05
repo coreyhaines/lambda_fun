@@ -54,6 +54,7 @@ Assert[IsEmpty[TrueFilter[EmptyList]]]
 Refute[IsEmpty[TrueFilter[NewList[True]]]]
 Assert[IsEmpty[FalseFilter[NewList[True]]]]
 
-title "Filter should return all matching elements (2)"
-Assert[Not[IsEmpty[TrueFilter[Unshift[NewList[True]][True]]]]]
-Assert[Not[IsEmpty[Tail[TrueFilter[Unshift[NewList[True]][True]]]]]]
+title "Filter should return all matching elements (3)"
+Assert[Head[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]
+Assert[Head[Tail[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]]
+Assert[IsEmpty[Tail[Tail[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]]]
