@@ -4,7 +4,7 @@ Head=->list{Car[Cdr[list]]}
 Tail=->list{
   If[VW[EmptyList]][->_{Cdr[Cdr[list]]}][IsEmpty[list]]
 }
-Unshift =
+Unshift=
 ->list{->element{
   Cons[False][Cons[element][list]]
 }}
