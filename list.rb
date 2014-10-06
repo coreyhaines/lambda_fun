@@ -63,3 +63,14 @@ Reduce=->reduction_function{->initial_value{
     IsEmpty[list]
   ]
 }}}
+
+Map=->mapping_function{
+->list{
+  If[
+    VW[EmptyList]
+  ][
+    ->_{ NewList[mapping_function[Head[list]]] }
+  ][
+    IsEmpty[list]
+  ]
+}}

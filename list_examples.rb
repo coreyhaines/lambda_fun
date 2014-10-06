@@ -66,6 +66,13 @@ AssertNumbersEqual[$two][reduce_over_add[NewList[$one]]]
 AssertNumbersEqual[$three][reduce_over_add[NewList[$two]]]
 AssertNumbersEqual[$three][reduce_over_add[Unshift[NewList[$one]][$one]]]
 
+Title["Map"]
+
+Title["Mapping Numbers"]
+AddOneMap = Map[NumbersAdd[$one]]
+AssertEmpty[AddOneMap[EmptyList]]
+AssertNumbersEqual[$one][Head[AddOneMap[NewList[$zero]]]]
+
 
 
 
