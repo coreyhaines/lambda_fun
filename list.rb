@@ -46,3 +46,15 @@ Filter=->filter{
     IsEmpty[list]
   ]
 }}
+Reduce=->reduction_function{->initial_value{
+->list{
+  If[
+    VW[initial_value]
+  ][
+    ->_{
+      Reduce[reduction_function][reduction_function[initial_value][Head[list]]][Tail[list]]
+    }
+  ][
+    IsEmpty[list]
+  ]
+}}}
