@@ -56,3 +56,18 @@ Title["Filter should return all matching elements (3)"]
 Assert[Head[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]
 Assert[Head[Tail[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]]
 AssertEmpty[Tail[Tail[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]]
+
+Title["Reduce"]
+
+Title["Reducing numbers (3)"]
+reduce_over_add = Reduce[NumbersAdd][$one]
+AssertNumbersEqual[$one][reduce_over_add[EmptyList]]
+AssertNumbersEqual[$two][reduce_over_add[NewList[$one]]]
+AssertNumbersEqual[$three][reduce_over_add[NewList[$two]]]
+AssertNumbersEqual[$three][reduce_over_add[Unshift[NewList[$one]][$one]]]
+
+
+
+
+
+

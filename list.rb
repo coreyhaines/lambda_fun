@@ -1,6 +1,6 @@
 require_relative 'core.rb'
 EmptyList = Cons[True][True]
-IsEmpty=->list{Car[list]}
+IsEmpty=Car
 Head=->list{Car[Cdr[list]]}
 Tail=->list{
   If[VW[EmptyList]][->_{Cdr[Cdr[list]]}][IsEmpty[list]]
@@ -46,3 +46,15 @@ Filter=->filter{
     IsEmpty[list]
   ]
 }}
+Reduce=->reduction_function{->initial_value{
+->list{
+  If[
+    VW[initial_value]
+  ][
+    ->_{
+      Reduce[reduction_function][reduction_function[initial_value][Head[list]]][Tail[list]]
+    }
+  ][
+    IsEmpty[list]
+  ]
+}}}
