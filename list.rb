@@ -1,5 +1,5 @@
 require_relative 'core.rb'
-EmptyList = Cons[True][True]
+EmptyList = Cons[True][Noop]
 IsEmpty=Car
 Head=->list{Car[Cdr[list]]}
 Tail=->list{
