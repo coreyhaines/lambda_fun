@@ -14,7 +14,6 @@ IfZero =
   IsZero[if_this_is_zero][do_this][otherwise_do_this].(Noop)
 }}}
 
-
 NumbersEqual =
 -> first { -> second {
   IfZero[first][

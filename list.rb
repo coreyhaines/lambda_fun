@@ -5,11 +5,14 @@ Head=->list{Car[Cdr[list]]}
 Tail=->list{
   If[VW[EmptyList]][->_{Cdr[Cdr[list]]}][IsEmpty[list]]
 }
+
 Unshift=
 ->list{->element{
   Cons[False][Cons[element][list]]
 }}
+
 NewList=->element{Unshift[EmptyList][element]}
+
 InList=->equality_operator{
 ->list{->element{
   If[
@@ -28,6 +31,7 @@ InList=->equality_operator{
     IsEmpty[list]
   ]
 }}}
+
 Filter=->filter{
 ->list{
   If[
@@ -46,6 +50,7 @@ Filter=->filter{
     IsEmpty[list]
   ]
 }}
+
 Reduce=->reduction_function{->initial_value{
 ->list{
   If[
