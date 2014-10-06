@@ -72,7 +72,8 @@ Title["Mapping Numbers"]
 AddOneMap = Map[NumbersAdd[$one]]
 AssertEmpty[AddOneMap[EmptyList]]
 AssertNumbersEqual[$one][Head[AddOneMap[NewList[$zero]]]]
-
+Print["TODO - Multiple element map after ListEqual"].(Noop)
+#AssertListsEqual[NewList[$one]][AddOneMap[NewList[$zero]]]
 
 
 
