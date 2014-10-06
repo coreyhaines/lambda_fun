@@ -32,6 +32,37 @@ InList=->equality_operator{
   ]
 }}}
 
+ListsEqual=->equality_operator{
+->list1{->list2{
+  If[
+    ->_{
+      IsEmpty[list2]
+    }
+  ][
+    ->_{
+      If[
+        LFalse
+      ][
+        ->_{
+          If[
+            ->_{
+              ListsEqual[equality_operator][Tail[list1]][Tail[list2]]
+            }
+          ][
+            LFalse
+          ][
+            equality_operator[Head[list1]][Head[list2]]
+          ]
+        }
+      ][
+        IsEmpty[list2]
+      ]
+    }
+  ][
+    IsEmpty[list1]
+  ]
+}}}
+
 Filter=->filter{
 ->list{
   If[

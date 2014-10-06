@@ -43,6 +43,16 @@ Assert[InList_Boolean[NewList[False]][False]]
 Assert[InList_Boolean[Unshift[NewList[True]][False]][True]]
 Assert[InList_Boolean[Unshift[NewList[True]][False]][False]]
 
+Title["ListsEqual (7)"]
+Assert[ListsEqual[Noop][EmptyList][EmptyList]]
+Refute[ListsEqual[Noop][EmptyList][NewList[$one]]]
+Refute[ListsEqual[Noop][NewList[$one]][EmptyList]]
+Assert[ListsEqual[NumbersEqual][NewList[$zero]][NewList[$zero]]]
+Refute[ListsEqual[NumbersEqual][NewList[$zero]][NewList[$one]]]
+Assert[ListsEqual[NumbersEqual][Unshift[NewList[$zero]][$one]][Unshift[NewList[$zero]][$one]]]
+Refute[ListsEqual[NumbersEqual][Unshift[NewList[$one]][$zero]][Unshift[NewList[$zero]][$zero]]]
+
+
 Title["Filter"]
 
 Title["Finding Trues (3)"]
@@ -68,7 +78,7 @@ AssertNumbersEqual[$three][reduce_over_add[Unshift[NewList[$one]][$one]]]
 
 Title["Map"]
 
-Title["Mapping Numbers"]
+Title["Mapping Numbers (2)"]
 AddOneMap = Map[NumbersAdd[$one]]
 AssertEmpty[AddOneMap[EmptyList]]
 AssertNumbersEqual[$one][Head[AddOneMap[NewList[$zero]]]]
