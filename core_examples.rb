@@ -12,6 +12,10 @@ If[PrintTrue][PrintFalse][True]
 Title["If False (1)"]
 If[PrintTrue][PrintFalse][False]
 
+Title["Identity (2)"]
+Assert[Identity[LTrue].(Noop)]
+Refute[Identity[LFalse].(Noop)]
+
 Title["And (4)"]
 Assert[And[True][True]]
 Refute[And[False][False]]

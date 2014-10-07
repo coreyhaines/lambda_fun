@@ -1,4 +1,5 @@
 Noop = -> _ { }
+Identity = ->x{x}
 
 Cons = -> head { -> tail { -> f { f[head][tail] } } }
 Car = -> tuple { tuple[-> head { -> tail { head }}] }
