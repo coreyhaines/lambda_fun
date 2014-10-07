@@ -32,3 +32,4 @@ RefuteNumbersEqual=MakeRefute2[NumbersEqual]
 
 AssertEmpty=MakeAssert1[IsEmpty]
 RefuteEmpty=MakeRefute1[IsEmpty]
+AssertListsEqual=->element_equality_operator{MakeAssert2[ListsEqual[element_equality_operator]]}

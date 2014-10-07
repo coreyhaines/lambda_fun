@@ -69,7 +69,7 @@ AssertEmpty[Tail[Tail[TrueFilter[Unshift[Unshift[NewList[True]][True]][False]]]]
 
 Title["Reduce"]
 
-Title["Reducing numbers (3)"]
+Title["Reducing numbers (4)"]
 reduce_over_add = Reduce[NumbersAdd][$one]
 AssertNumbersEqual[$one][reduce_over_add[EmptyList]]
 AssertNumbersEqual[$two][reduce_over_add[NewList[$one]]]
@@ -78,12 +78,12 @@ AssertNumbersEqual[$three][reduce_over_add[Unshift[NewList[$one]][$one]]]
 
 Title["Map"]
 
-Title["Mapping Numbers (2)"]
+Title["Mapping Numbers (4)"]
 AddOneMap = Map[NumbersAdd[$one]]
-AssertEmpty[AddOneMap[EmptyList]]
-AssertNumbersEqual[$one][Head[AddOneMap[NewList[$zero]]]]
-Print["TODO - Multiple element map after ListEqual"].(Noop)
-#AssertListsEqual[NewList[$one]][AddOneMap[NewList[$zero]]]
+AssertNumbersEqual[Head[NewList[$two]]][Head[AddOneMap[NewList[$one]]]]
+Assert[ListsEqual[NumbersEqual][NewList[$two]][AddOneMap[NewList[$one]]]]
+AssertListsEqual[NumbersEqual][NewList[$two]][AddOneMap[NewList[$one]]]
+AssertListsEqual[NumbersEqual][NewList[$two]][AddOneMap[NewList[$one]]]
 
 
 
