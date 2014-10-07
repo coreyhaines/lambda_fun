@@ -40,3 +40,17 @@ NumbersSubtract =
     }
   ]
 }}
+
+NumbersReduce=->reduction_function{
+->number{
+  NumbersReduceWithInitialValue[reduction_function][$zero][number]
+}}
+
+NumbersReduceWithInitialValue=->reduction_function{
+->initial_value{->number{
+  IfZero[number][VW[initial_value]][
+    ->_{
+      NumbersReduceWithInitialValue[reduction_function][reduction_function[initial_value][number]][Pred[number]]
+    }
+  ]
+}}}

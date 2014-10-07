@@ -41,3 +41,10 @@ AssertNumbersEqual[$one][NumbersSubtract[$three][$two]]
 AssertNumbersEqual[$zero][NumbersSubtract[$two][$three]]
 AssertNumbersEqual[$zero][NumbersSubtract[$one][$four]]
 
+Title["Reduction (2)"]
+return_number=->result{->n{n}}
+AssertZero[NumbersReduce[return_number][$zero]]
+AssertNumbersEqual[$one][NumbersReduce[return_number][$one]]
+add_numbers=->result{->n{NumbersAdd[result][n]}}
+AssertNumbersEqual[$three][NumbersReduce[add_numbers][$two]]
+
