@@ -1,7 +1,7 @@
 require_relative 'core.rb'
 IsZero = Car
-Succ = -> number { Cons[False][number] }
-Pred = Cdr #-> number { Cdr[number] }
+Succ = ->number{Cons[False][number]}
+Pred = Cdr
 
 $zero = Cons[True][Noop]
 $one = Succ[$zero]
@@ -10,12 +10,12 @@ $three = Succ[$two]
 $four = Succ[$three]
 
 IfZero =
--> if_this_is_zero { -> do_this { -> otherwise_do_this {
+->if_this_is_zero{->do_this{->otherwise_do_this{
   IsZero[if_this_is_zero][do_this][otherwise_do_this].(Noop)
 }}}
 
 NumbersEqual =
--> first { -> second {
+->first{->second{
   IfZero[first][
     ->_{IsZero[second]}
   ][
@@ -24,14 +24,14 @@ NumbersEqual =
 }}
 
 NumbersAdd =
--> addend { -> augend {
+->addend{->augend {
   IfZero[augend][VW[addend]][
     ->_{NumbersAdd[Succ[addend]][Pred[augend]]}
   ]
 }}
 
 NumbersSubtract =
--> minuend { -> subtrahend {
+->minuend{->subtrahend {
   IfZero[subtrahend][VW[minuend]][
     ->_{
       IfZero[minuend][VW[$zero]][
