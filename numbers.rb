@@ -1,7 +1,7 @@
 require_relative 'core.rb'
 IsZero = Car
 Succ = -> number { Cons[False][number] }
-Pred = -> number { Cdr[number] }
+Pred = Cdr #-> number { Cdr[number] }
 
 $zero = Cons[True][Noop]
 $one = Succ[$zero]
