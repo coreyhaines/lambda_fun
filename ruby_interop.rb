@@ -1,5 +1,6 @@
 require_relative 'core'
 require_relative 'numbers'
+require_relative 'testing'
 System_Print=->to_print{Kernel.print to_print}
 System_PrintLine=->to_print{System_Print[to_print+"\n"]}
 Raise=->to_raise{raise to_raise}
@@ -17,7 +18,7 @@ ConvertToRubyNumber=
 PrintNumber=->number{puts ConvertToRubyNumber[number]}
 def assert(expected, actual, msg = "")
   if(expected==actual)
-    PrintTrue.(Noop)
+    Assert[True]
   else
     Raise["Fail! expected #{expected}, got #{actual}. #{msg}"]
   end
