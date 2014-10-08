@@ -28,8 +28,26 @@ MakeRefute2=->operator{
 }}}
 
 AssertZero=MakeAssert1[IsZero]
-AssertNumbersEqual=MakeAssert2[NumbersEqual]
-RefuteNumbersEqual=MakeRefute2[NumbersEqual]
+AssertNumbersEqual=
+->expected{->actual{
+  If[
+    PASS
+  ][
+    ->_{ Raise["\e[31mFailed: Expected #{ConvertToRubyNumber[expected]}, got #{ConvertToRubyNumber[actual]}.\e[39m"] }
+  ][
+    NumbersEqual[expected][actual]
+  ]
+}}
+RefuteNumbersEqual=
+->expected{->actual{
+  If[
+    ->_{ Raise["\e[31mFailed: Expected #{ConvertToRubyNumber[actual]} to *NOT EQUAL* #{ConvertToRubyNumber[expected]}.\e[39m"] }
+  ][
+    PASS
+  ][
+    NumbersEqual[expected][actual]
+  ]
+}}
 
 AssertEmpty=MakeAssert1[IsEmpty]
 RefuteEmpty=MakeRefute1[IsEmpty]
