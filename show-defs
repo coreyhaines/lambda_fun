@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+require 'parser/current'
+
+parse = -> filename, body {
+  Parser::CurrentRuby.new.parse \
+    Parser::Source::Buffer.new(filename).tap { |b| b.source = body }
+}
+
+assignment = Struct.new :filename, :line_number, :code, :ast
+
+find_assignments = -> ast {
+  return [] unless ast.respond_to? :type
+  filename = ast.location.expression.source_buffer.name
+  case ast.type
+  when :lvasgn, :casgn, :ivasgn, :cvasgn, :gvasgn # a=1, A=1, @a=1, @@a=1, $a=1 (operator assignments wrap these, e.g. a+=1)
+    ast.children.flat_map(&find_assignments) << assignment.new(filename, ast.location.line, ast.location.expression.source, ast)
+  when :masgn
+    names, values = ast.children.map(&:children)
+    [names, values].transpose.flat_map do |lhs, rhs|
+      code = lhs.location.expression.source + ' = ' + rhs.location.expression.source
+      rhs.children.flat_map(&find_assignments) << assignment.new(filename, lhs.location.line, code, parse[filename, code])
+    end
+  else
+    ast.children.flat_map(&find_assignments)
+  end
+}
+
+is_current_file = -> filename { File.expand_path(filename) == File.expand_path(__FILE__) }
+puts Dir[File.join __dir__, '**', '*.rb']
+  .reject   { |filename| is_current_file[filename] }
+  .flat_map { |filename| find_assignments[parse[File.basename(filename), File.read(filename)]] }
+  .group_by { |asgnment| asgnment.filename }
+  .map { |filename, asgnments|
+    col_of_assign = asgnments.map { |a| a.code[/[^=]*/].strip.size }.max.next
+    for_printing  = -> ast {
+      lhs, rhs = ast.code.gsub("\n", "").split(/\s*=\s*/, 2)
+      pad_size = col_of_assign - lhs.size
+      result   = '  ' << lhs << (' ' * pad_size) << '= ' << rhs
+      result[100..-1] = '...' if 100 < result.size
+      result
+    }
+    ["\e[34m--#{filename}\e[0m", asgnments.map(&for_printing)]
+  }

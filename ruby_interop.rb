@@ -1,6 +1,7 @@
 require_relative 'core'
 require_relative 'numbers'
-System_Print=->to_print{puts to_print}
+System_Print=->to_print{Kernel.print to_print}
+System_PrintLine=->to_print{System_Print[to_print+"\n"]}
 Raise=->to_raise{raise to_raise}
 ConvertToRubyNumber=
 ->number{

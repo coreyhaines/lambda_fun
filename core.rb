@@ -19,8 +19,9 @@ Not = ->bool{bool[False][True]}
 XNor = ->bool1{->bool2{bool1[bool2][Not[bool2]]}}
 
 Print = -> to_print { -> _ { System_Print[to_print] } }
-PrintTrue = Print["True"]
-PrintFalse = Print["False"]
+PrintLine = -> to_print { -> _ { System_PrintLine[to_print] }}
+PrintTrue = PrintLine["True"]
+PrintFalse = PrintLine["False"]
 PrintBoolean=->bool{bool[PrintTrue][PrintFalse].(Noop)}
 
-Title=->to_print{Print["-----#{to_print}-----"].(Noop)}
+Title=->to_print{PrintLine["\n-----#{to_print}-----"].(Noop)}

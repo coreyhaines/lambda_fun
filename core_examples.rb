@@ -1,16 +1,16 @@
 require_relative 'core.rb'
 require_relative 'testing.rb'
 Title["Tuples (2)"]
-tuple = Cons[1][2]
-puts (Car[tuple] == 1 ? "T" : "F")
-puts (Cdr[tuple] == 2 ? "T" : "F")
+tuple = Cons[$one][$two]
+Assert[NumbersEqual[$one][Car[tuple]]]
+Assert[NumbersEqual[$two][Cdr[tuple]]]
 
 Title["Logic"]
 
 Title["If True (1)"]
-If[PrintTrue][PrintFalse][True]
+If[PASS][FAIL][True]
 Title["If False (1)"]
-If[PrintTrue][PrintFalse][False]
+If[FAIL][PASS][False]
 
 Title["Identity (2)"]
 Assert[Identity[LTrue].(Noop)]
