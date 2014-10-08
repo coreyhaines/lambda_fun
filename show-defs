@@ -25,9 +25,9 @@ find_assignments = -> ast {
   end
 }
 
-is_current_file = -> filename { File.expand_path(filename) == File.expand_path(__FILE__) }
+is_irrelevant_file = -> filename { File.expand_path(filename) == File.expand_path(__FILE__) || filename =~ /example/ }
 puts Dir[File.join __dir__, '**', '*.rb']
-  .reject   { |filename| is_current_file[filename] }
+  .reject   { |filename| is_irrelevant_file[filename] }
   .flat_map { |filename| find_assignments[parse[File.basename(filename), File.read(filename)]] }
   .group_by { |asgnment| asgnment.filename }
   .map { |filename, asgnments|
