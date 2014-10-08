@@ -85,6 +85,13 @@ Assert[ListsEqual[NumbersEqual][NewList[$two]][AddOneMap[NewList[$one]]]]
 AssertListsEqual[NumbersEqual][NewList[$two]][AddOneMap[NewList[$one]]]
 AssertListsEqual[NumbersEqual][NewList[$two]][AddOneMap[NewList[$one]]]
 
+Title["Length"]
+
+Title["Counting Numbers (?)"]
+AssertNumbersEqual[$zero][Length[EmptyList]]
+AssertNumbersEqual[$one][Length[NewList[$zero]]]
+AssertNumbersEqual[$two][Length[Unshift[NewList[$zero]][$one]]]
+
 
 
 

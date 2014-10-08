@@ -105,3 +105,14 @@ Map=->mapping_function{
     IsEmpty[list]
   ]
 }}
+
+Length=
+->list{
+  If[
+    VW[$zero]
+  ][
+    ->_{ NumbersAdd[$one][Length[Tail[list]]] }
+  ][
+    IsEmpty[list]
+  ]
+}
