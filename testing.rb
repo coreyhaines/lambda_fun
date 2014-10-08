@@ -4,9 +4,9 @@ require_relative 'numbers.rb'
 require_relative 'list.rb'
 
 FAIL = ->_{Raise["\e[31mFailed\e[0m"]}
-PASS = Print["\e[32mPass\e[0m"]
-Assert=->bool{If[Print["\e[32mT\e[0m"]][FAIL][bool]}
-Refute=->bool{If[FAIL][Print["\e[32mT\e[0m"]][bool]}
+PASS = Print["\e[32mT\e[0m"]
+Assert=->bool{If[PASS][FAIL][bool]}
+Refute=->bool{If[FAIL][PASS][bool]}
 
 
 MakeAssert1=->operator{

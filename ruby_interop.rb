@@ -18,7 +18,7 @@ ConvertToRubyNumber=
 PrintNumber=->number{puts ConvertToRubyNumber[number]}
 def assert(expected, actual, msg = "")
   if(expected==actual)
-    Assert[True]
+    PASS[Noop]
   else
     Raise["Fail! expected #{expected}, got #{actual}. #{msg}"]
   end
