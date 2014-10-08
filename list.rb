@@ -100,7 +100,9 @@ Map=->mapping_function{
   If[
     VW[EmptyList]
   ][
-    ->_{ NewList[mapping_function[Head[list]]] }
+    ->_{
+      Unshift[Map[mapping_function][Tail[list]]][mapping_function[Head[list]]]
+    }
   ][
     IsEmpty[list]
   ]

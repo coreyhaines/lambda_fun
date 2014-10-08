@@ -83,11 +83,11 @@ AddOneMap = Map[NumbersAdd[$one]]
 AssertNumbersEqual[Head[NewList[$two]]][Head[AddOneMap[NewList[$one]]]]
 Assert[ListsEqual[NumbersEqual][NewList[$two]][AddOneMap[NewList[$one]]]]
 AssertListsEqual[NumbersEqual][NewList[$two]][AddOneMap[NewList[$one]]]
-AssertListsEqual[NumbersEqual][NewList[$two]][AddOneMap[NewList[$one]]]
+AssertListsEqual[NumbersEqual][Unshift[NewList[$two]][$three]][AddOneMap[Unshift[NewList[$one]][$two]]]
 
 Title["Length"]
 
-Title["Counting Numbers (?)"]
+Title["Counting Numbers (3)"]
 AssertNumbersEqual[$zero][Length[EmptyList]]
 AssertNumbersEqual[$one][Length[NewList[$zero]]]
 AssertNumbersEqual[$two][Length[Unshift[NewList[$zero]][$one]]]
