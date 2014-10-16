@@ -1,2 +1,4 @@
-church_numerals
+Lambda Fun
 ===============
+
+Fun with the Lambda Calculus
