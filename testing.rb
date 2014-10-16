@@ -2,6 +2,7 @@ require_relative 'ruby_interop.rb'
 require_relative 'core.rb'
 require_relative 'numbers.rb'
 require_relative 'list.rb'
+require_relative 'strings.rb'
 
 FAIL = ->_{Raise["\e[31mFailed\e[0m"]}
 PASS = Print["\e[32mT\e[0m"]
@@ -52,3 +53,4 @@ RefuteNumbersEqual=
 AssertEmpty=MakeAssert1[IsEmpty]
 RefuteEmpty=MakeRefute1[IsEmpty]
 AssertListsEqual=->element_equality_operator{MakeAssert2[ListsEqual[element_equality_operator]]}
+AssertStringsEqual=MakeAssert2[StringsEqual]
