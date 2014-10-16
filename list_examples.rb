@@ -103,3 +103,8 @@ AssertListsEqual[NumbersEqual][
 ][
   ListAdd[Unshift[NewList[$two]][$three]][NewList[$one]]
 ]
+
+Title["ListReverse (3)"]
+AssertEmpty[ListReverse[EmptyList]]
+AssertListsEqual[NumbersEqual][NewList[$one]][ListReverse[NewList[$one]]]
+AssertListsEqual[NumbersEqual][ConvertFromRubyString["kaz"]][ListReverse[ConvertFromRubyString["zak"]]]

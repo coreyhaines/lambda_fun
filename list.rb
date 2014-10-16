@@ -128,7 +128,11 @@ ListAdd=->list1{->list2{
         VW[list1]
       ][
         ->_{
-          Unshift[ListAdd[Tail[list1]][list2]][Head[list1]]
+          Unshift[
+            ListAdd[Tail[list1]][list2]
+          ][
+            Head[list1]
+          ]
         }
       ][
         IsEmpty[list2]
@@ -138,3 +142,22 @@ ListAdd=->list1{->list2{
     IsEmpty[list1]
   ]
 }}
+
+
+reverse_and_prepend_to=
+->reverse_this_list{->prepend_to_this_list{
+  If[
+    VW[prepend_to_this_list]
+  ][
+    ->_{
+      reverse_and_prepend_to[
+        Tail[reverse_this_list]
+      ][
+        Unshift[prepend_to_this_list][Head[reverse_this_list]]
+      ]
+    }
+  ][
+    IsEmpty[reverse_this_list]
+  ]
+}}
+ListReverse=->list{reverse_and_prepend_to[list][EmptyList]}
