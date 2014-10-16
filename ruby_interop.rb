@@ -15,6 +15,10 @@ ConvertToRubyNumber=
   }}
   Cdr[NumbersReduce[increment_ruby_number][number]]
 }
+ConvertFromRubyNumber=
+->ruby_number{
+  ruby_number.times.reduce($zero) { |church, *| Succ[church] }
+}
 PrintNumber=->number{puts ConvertToRubyNumber[number]}
 def assert(expected, actual, msg = "")
   if(expected==actual)
