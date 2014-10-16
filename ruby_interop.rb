@@ -19,6 +19,10 @@ ConvertFromRubyNumber=
 ->ruby_number{
   ruby_number.times.reduce($zero) { |church, *| Succ[church] }
 }
+ConvertFromRubyChar=->char{ConvertFromRubyNumber[char.ord]}
+ConvertFromRubyString=->string{
+  string.reverse.chars.reduce(EmptyList) { |list, char| Unshift[list][ConvertFromRubyChar[char]]}
+}
 PrintNumber=->number{puts ConvertToRubyNumber[number]}
 def assert(expected, actual, msg = "")
   if(expected==actual)
