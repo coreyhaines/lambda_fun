@@ -2,6 +2,7 @@ require_relative 'core.rb'
 require_relative 'testing.rb'
 require_relative 'list.rb'
 require_relative 'numbers.rb'
+require_relative 'ruby_interop.rb'
 
 Title["Lists"]
 
@@ -92,7 +93,13 @@ AssertNumbersEqual[$zero][Length[EmptyList]]
 AssertNumbersEqual[$one][Length[NewList[$zero]]]
 AssertNumbersEqual[$two][Length[Unshift[NewList[$zero]][$one]]]
 
-
-
-
-
+Title["ListAdd (5)"]
+AssertEmpty[ListAdd[EmptyList][EmptyList]]
+AssertListsEqual[NumbersEqual][NewList[$two]][ListAdd[EmptyList][NewList[$two]]]
+AssertListsEqual[NumbersEqual][NewList[$two]][ListAdd[NewList[$two]][EmptyList]]
+AssertListsEqual[NumbersEqual][Unshift[NewList[$one]][$two]][ListAdd[NewList[$two]][NewList[$one]]]
+AssertListsEqual[NumbersEqual][
+  Unshift[Unshift[NewList[$one]][$two]][$three]
+][
+  ListAdd[Unshift[NewList[$two]][$three]][NewList[$one]]
+]

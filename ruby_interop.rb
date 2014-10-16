@@ -23,3 +23,14 @@ def assert(expected, actual, msg = "")
     Raise["Fail! expected #{expected}, got #{actual}. #{msg}"]
   end
 end
+RubyDisplayListOfNumbers=->list{
+p Reduce[
+  ->result{->element{
+    result << element
+  }}
+][
+  []
+][
+Map[ConvertToRubyNumber][list]
+]
+}

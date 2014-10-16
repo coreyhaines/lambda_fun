@@ -118,3 +118,23 @@ Length=
     IsEmpty[list]
   ]
 }
+
+ListAdd=->list1{->list2{
+  If[
+    VW[list2]
+  ][
+    ->_{
+      If[
+        VW[list1]
+      ][
+        ->_{
+          Unshift[ListAdd[Tail[list1]][list2]][Head[list1]]
+        }
+      ][
+        IsEmpty[list2]
+      ]
+    }
+  ][
+    IsEmpty[list1]
+  ]
+}}
